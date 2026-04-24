@@ -1,16 +1,13 @@
-// Configuration
 const API_URL = window.location.href.includes('localhost:8080') 
   ? 'http://localhost:3000'
   : `http://${window.location.hostname}:3000`;
 
 document.getElementById('backendUrl').textContent = API_URL;
 
-// Charger les messages au démarrage
 document.addEventListener('DOMContentLoaded', () => {
     loadMessages();
 });
 
-// Vérifier la santé du serveur
 async function checkHealth() {
     try {
         const response = await fetch(`${API_URL}/health`);
@@ -30,7 +27,6 @@ async function checkHealth() {
     }
 }
 
-// Charger tous les messages
 async function loadMessages() {
     try {
         const response = await fetch(`${API_URL}/api/messages`);
@@ -55,7 +51,6 @@ async function loadMessages() {
     }
 }
 
-// Ajouter un nouveau message
 async function addMessage() {
     const input = document.getElementById('messageInput');
     const text = input.value.trim();
@@ -83,7 +78,6 @@ async function addMessage() {
     }
 }
 
-// Supprimer un message
 async function deleteMessage(id) {
     if (!confirm('Êtes-vous sûr de vouloir supprimer ce message?')) return;
 
@@ -102,7 +96,6 @@ async function deleteMessage(id) {
     }
 }
 
-// Fonction utilitaire pour échapper le HTML
 function escapeHtml(text) {
     const map = {
         '&': '&amp;',
@@ -114,5 +107,4 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Recharger les messages toutes les 5 secondes
 setInterval(loadMessages, 5000);
