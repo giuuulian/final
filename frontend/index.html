@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Simple</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Application Full-Stack Simple</h1>
+        
+        <div class="health-section">
+            <h2>Statut du serveur</h2>
+            <button onclick="checkHealth()">Vérifier la santé</button>
+            <p id="healthStatus"></p>
+        </div>
+
+        <div class="messages-section">
+            <h2>Gestion des messages</h2>
+            
+            <div class="input-group">
+                <input type="text" id="messageInput" placeholder="Entrez un nouveau message..." />
+                <button onclick="addMessage()">Ajouter</button>
+            </div>
+
+            <h3>Messages actuels:</h3>
+            <div id="messagesList" class="messages-list"></div>
+        </div>
+
+        <div class="footer">
+            <p>Backend: <span id="backendUrl">http://localhost:3000</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
